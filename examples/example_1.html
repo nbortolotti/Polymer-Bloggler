@@ -1,0 +1,80 @@
+<!--example code using core-header-panel demo from www.polymer-project.org adated to blogger template
+Nicolas Bortolotti-->
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
+<head> 
+<title><data:blog.pageTitle/></title>
+
+<b:skin><![CDATA[/*
+
+<style shim-shadowdom>
+
+    body {
+      font-family: sans-serif;
+    }
+
+    core-header-panel {
+      float: left;
+      width: 360px;
+      height: 400px;
+      margin: 5px;
+    }
+    
+    core-header-panel[mode=cover]::shadow #mainContainer {
+      left: 70px;
+    }
+
+    .core-header {
+      height: 60px;
+      line-height: 60px;
+      font-size: 18px;
+      padding: 0 10px;
+      background-color: #4F7DC9;
+      color: #FFF;
+      transition: height 0.2s;
+    }
+    
+    .core-header.tall {
+      height: 180px;
+    }
+    
+    .core-header.medium-tall {
+      height: 120px;
+    }
+
+    .content {
+      height: 2000px;
+      background: linear-gradient(rgb(214, 227, 231), lightblue);
+    }
+
+  </style>]]></b:skin>
+
+<script src='//www.polymer-project.org/components/webcomponentsjs/webcomponents.js'/>
+
+<link href='//www.polymer-project.org/components/core-header-panel/core-header-panel.html' rel='import'/>
+
+  
+
+</head>
+
+<body>
+<data:blog.title/>
+<b:section class='header' id='header'/>
+
+<b:widget id='Navbar1' locked='true' title='Barra de navegación' type='Navbar'>
+      <b:includable id='main'>
+    <core-header-panel mode='cover'>
+    <div class='core-header tall'>cover</div>
+    <div class='content' style='margin: 60px 60px 60px 0;'/>
+</core-header-panel>
+    </b:includable>
+    </b:widget>
+    
+
+    
+</body>
+
+</html>

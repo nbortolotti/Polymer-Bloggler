@@ -1,0 +1,109 @@
+<!--example code using core-pages demo from www.polymer-project.org ada
+adated to blogger template
+Nicolas Bortolotti-->
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <b:skin>
+      <![CDATA[
+<style>
+html, body {
+height: 100%;
+}
+body {
+font-family: sans-serif;
+}
+core-pages {
+width: 300px;
+height: 300px;
+border: 1px solid black;
+-webkit-user-select: none;
+border-radius: 5px;
+}
+core-pages > div {
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: inherit;
+}
+core-pages.fancy {
+border: none;
+margin-left: 2em;
+}
+core-pages.fancy > div {
+opacity: 0;
+-webkit-transform: translate3d(-100px, 0, 0) scale(0.9);
+transform: translate3d(-100px, 0, 0) scale(0.9);
+transition: all 1s cubic-bezier(.03,.56,.7,.98);
+color: white;
+}
+core-pages.fancy > .one {
+background-color: red;
+}
+core-pages.fancy > .two {
+background-color: green;
+}
+core-pages.fancy > .three {
+background-color: blue;
+}
+core-pages.fancy > .four {
+background-color: purple;
+}
+core-pages.fancy > .five {
+background-color: black;
+}
+core-pages.fancy .core-selected + div {
+-webkit-transform: translate3d(100px, 0, 0) scale(0.9);
+transform: translate3d(100px, 0, 0) scale(1);
+}
+core-pages.fancy .core-selected {
+opacity: 1;
+-webkit-transform: translateX(0);
+transform: translateX(0);
+}
+core-pages.fancy div.begin {
+-webkit-transform: translate3d(100px, 0, 0) scale(0.9);
+transform: translate3d(100px, 0, 0) scale(0.9);
+}
+</style>
+]]>
+    </b:skin>
+    <script src='//www.polymer-project.org/components/webcomponentsjs/webcomponents.js'/>
+    <link href='//www.polymer-project.org/components/core-pages/core-pages.html' rel='import'/>
+  </head>
+  <body>
+    <b:section class='header' id='header'/>
+    <core-pages class="fancy" selected="0">
+      <div class="one">
+        One
+      </div>
+      <div class="two">
+        Two
+      </div>
+      <div class="three">
+        Three
+      </div>
+      <div class="four">
+        Four
+      </div>
+      <div class="five">
+        Five
+      </div>
+    </core-pages>
+    <script >
+      //<![CDATA[
+      document.querySelector('core-pages.fancy').onclick = function(e) {
+        this.selected = (this.selected + 1) % this.items.length;
+        this.async(function() {
+          if (this.selectedIndex == 0) {
+            this.selectedItem.classList.remove('begin');
+          } else if (this.selectedIndex == this.items.length - 1) {
+            this.items[0].classList.add('begin');
+          }
+        });
+      };
+      //]]>
+    </script>
+  </body>
+</html>
